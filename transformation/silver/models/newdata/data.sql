@@ -1,0 +1,31 @@
+{{ config( twin_strategy="allow", materialized="table" ) }}
+
+SELECT 
+    Age, 
+    CASE WHEN Age >= 60 THEN TRUE ELSE FALSE END AS Is_Senior,
+    UPPER(Marital_Status) AS Marital_Status,
+    COALESCE(Married_Premium_Discount, 0) AS Married_Premium_Discount,
+    UPPER(Prior_Insurance) AS Prior_Insurance,
+    COALESCE(Prior_Insurance_Premium_Adjustment, 0) AS Prior_Insurance_Premium_Adjustment,
+    COALESCE(Claims_Frequency, 0) AS Claims_Frequency,
+    COALESCE(Claims_Severity, 0.0) AS Claims_Severity,
+    COALESCE(Claims_Adjustment, 0.0) AS Claims_Adjustment,
+    UPPER(Policy_Type) AS Policy_Type,
+    COALESCE(Policy_Adjustment, 0.0) AS Policy_Adjustment,
+    COALESCE(Premium_Amount, 0.0) AS Premium_Amount,
+    COALESCE(Safe_Driver_Discount, 0.0) AS Safe_Driver_Discount,
+    COALESCE(Multi_Policy_Discount, 0.0) AS Multi_Policy_Discount,
+    COALESCE(Bundling_Discount, 0.0) AS Bundling_Discount,
+    COALESCE(Total_Discounts, 0.0) AS Total_Discounts,
+    UPPER(Source_of_Lead) AS Source_of_Lead,
+    COALESCE(Time_Since_First_Contact, 0) AS Time_Since_First_Contact,
+    UPPER(Conversion_Status) AS Conversion_Status,
+    COALESCE(Website_Visits, 0) AS Website_Visits,
+    COALESCE(Inquiries, 0) AS Inquiries,
+    COALESCE(Quotes_Requested, 0) AS Quotes_Requested,
+    COALESCE(Time_to_Conversion, 0) AS Time_to_Conversion,
+    COALESCE(Credit_Score, 0) AS Credit_Score,
+    COALESCE(Premium_Adjustment_Credit, 0.0) AS Premium_Adjustment_Credit,
+    UPPER(Region) AS Region,
+    COALESCE(Premium_Adjustment_Region, 0.0) AS Premium_Adjustment_Region
+FROM catalog.bronze.newdata.data

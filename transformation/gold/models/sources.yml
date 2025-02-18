@@ -33,3 +33,7 @@ sources:
         meta:
           dagster:
             asset_key: ["vehicle_health_logs"]
+      - name: data
+        meta:
+          dagster:
+            asset_key: ["data"]

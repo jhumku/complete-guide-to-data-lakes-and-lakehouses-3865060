@@ -136,3 +136,21 @@ models:
         description: "Identifier for the vehicle"
         tests:
           - not_null
+  
+  - name: data
+    description: "Cleansed and transformed data layer"
+    columns:
+      - name: Age
+        description: "Age of the policyholder"
+      - name: Is_Senior
+        description: "Derived field - 'Yes' if Age >= 60, otherwise 'No'"
+      - name: Premium_Amount
+        description: "Total premium amount for the policy"
+      - name: Claims_Frequency
+        description: "Number of claims made by the policyholder"
+      - name: Credit_Score
+        description: "Credit score of the policyholder"
+      - name: Total_Premium_Adjustment
+        description: "Sum of Premium_Adjustment_Credit and Premium_Adjustment_Region"
+      - name: Region
+        description: "Region where the policy is issued"

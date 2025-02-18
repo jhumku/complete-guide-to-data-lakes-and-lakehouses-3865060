@@ -41,4 +41,6 @@ models:
     +materialized: table
   vehicle_health:
     +materialized: table
+  newdata:
+    +materialized: table
     
